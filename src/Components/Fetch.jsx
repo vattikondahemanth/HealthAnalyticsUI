@@ -27,8 +27,23 @@ const Fetch = () => {
   useEffect(() => {
     test();
   }, []);
-  let column = useMemo(() => [{ Header: "Value", accesser: "Value" }], []);
+  let columns = useMemo(() => [
+    {
+      Header: "table Data",
+      columns: [
+                  {
+                    Header: "Value",
+                    accessor: "Value"
+                  },
+                  {
+                    Header: "Test_Name",
+                    accessor: "Test_Name"
+                  }
+               ]
+    }
 
-  return <div>{users && <Test userData={users} column={column} />}</div>;
+  ], []);
+
+  return <div>{users && <Test userData={users} columns={columns} />}</div>;
 };
 export default Fetch;
